@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101820"><link rel="manifest" href="manifest.json">
+<title>Kripto AI</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="brand"><span class="logo">₿</span><div><h1>KRİPTO AI</h1><small>Akıllı piyasa analiz merkezi</small></div></div><button id="refresh">↻ Yenile</button></header>
+<main>
+<div class="toolbar"><label for="coin">Varlık</label><select id="coin"><option value="bitcoin">Bitcoin (BTC)</option><option value="ethereum">Ethereum (ETH)</option><option value="solana">Solana (SOL)</option><option value="binancecoin">BNB</option><option value="ripple">XRP</option><option value="dogecoin">Dogecoin (DOGE)</option></select><label for="currency">Para birimi</label><select id="currency"><option value="usd">USD</option><option value="try">TRY</option><option value="eur">EUR</option></select></div>
+<section class="hero panel"><div class="muted" id="assetName">Bitcoin · BTC</div><div class="price" id="price">Veri yükleniyor…</div><div id="change" class="change">Piyasa verileri alınıyor</div><div class="stamp" id="stamp"></div></section>
+<section class="metrics">
+<div class="panel metric"><small>Piyasa değeri</small><strong id="marketCap">—</strong></div>
+<div class="panel metric"><small>24s hacim</small><strong id="volume">—</strong></div>
+<div class="panel metric"><small>24s en yüksek</small><strong id="high">—</strong></div>
+<div class="panel metric"><small>24s en düşük</small><strong id="low">—</strong></div>
+</section>
+<section class="panel"><div class="section-head"><h2>Fiyat grafiği</h2><select id="period"><option value="1">24 saat</option><option value="7">7 gün</option><option value="30">30 gün</option></select></div><canvas id="chart" height="210"></canvas><div class="legend">Kaynak: CoinGecko · Gösterilen geçmiş veriler API erişimine bağlıdır.</div></section>
+<section class="panel"><h2>Teknik göstergeler</h2><div class="metrics"><div><small>RSI (14)</small><strong id="rsi">—</strong></div><div><small>EMA (12 / 26)</small><strong id="ema">—</strong></div><div><small>Trend</small><strong id="trend">—</strong></div></div><p id="analysis" class="analysis">Analiz hazırlanıyor…</p><p class="disclaimer">Bu otomatik teknik özet yatırım tavsiyesi değildir. Göstergeler gelecekteki fiyatı garanti etmez.</p></section>
+<section class="panel" id="aiPanel"><div class="section-head"><h2>Gerçek yapay zekâ analizi</h2><span class="ai-tag">Cihaz üzerinde</span></div>
+<p class="muted">İsteğe bağlı küçük dil modeli tarayıcıya indirilir ve cihazın desteklediği işlemci/GPU üzerinde çalışır. İlk indirme büyük olabilir.</p>
+<div class="alert-row"><button id="loadAI">AI modelini yükle</button><button id="runAI" disabled>Verileri yorumla</button></div>
+<div id="aiStatus" class="muted" role="status">Model henüz yüklenmedi. İnternet ve yeterli bellek gerekir.</div>
+<div id="aiOutput" class="analysis ai-output">AI yorumu burada görünecek.</div>
+<p class="disclaimer">Model hatalı veya uydurma yorum üretebilir. Fiyat ve göstergeler asıl veri kaynağıdır; çıktı yatırım tavsiyesi değildir. Model dosyaları Hugging Face üzerinden indirilir.</p></section>
+<section class="panel"><h2>Fiyat alarmı</h2><p class="muted">Bu ilk sürümde alarm, uygulama açıkken fiyat yenilendiğinde kontrol edilir.</p><div class="alert-row"><select id="condition"><option value="above">Fiyat şu değerin üstüne çıkarsa</option><option value="below">Fiyat şu değerin altına inerse</option></select><input id="target" type="number" min="0" step="any" placeholder="Hedef fiyat"><button id="setAlert">Alarm kur</button></div><div id="alertStatus" class="muted"></div></section>
+<section class="panel"><h2>Rapor</h2><p class="muted">Mevcut fiyat ve teknik göstergelerden kısa rapor oluştur.</p><button id="report">Raporu oluştur ve indir (.txt)</button><pre id="reportText" hidden></pre></section>
+</main>
+<footer>Kripto AI · İlk prototip · Veriler gecikmeli olabilir</footer>
+<script src="app.js"></script><script type="module" src="ai.js"></script>
+</body></html>
